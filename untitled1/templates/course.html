@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程列表页</title>
+    <style>
+        .ce {
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .ce .ml {
+            text-align: center;
+        }
+
+        .li {
+            list-style: none;
+            padding-left: 20px;
+            text-align: left;
+            padding-left: 45%;
+        }
+
+        .pagebtn {
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="ce">
+    <div class="ml">
+        {% for context in course_page %}
+
+            <ul>
+                <li class="li"><a href="{% url 'text:content'  context.id %}">{{ context.title }}</a></li>
+            </ul>
+        {% endfor %}
+    </div>
+
+    <div class="pagebtn">
+        {% if course_page.has_previous %}
+            <a href="{% url 'text:course' course_id course_page.previous_page_number %}">上一页</a>
+        {% endif %}
+        <span>Page {{ page }} of {{ number_pages }}</span>
+
+        {% if course_page.has_next %}
+            <a href="{% url 'text:course' course_id course_page.next_page_number %}">下一页</a>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

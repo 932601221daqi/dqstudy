@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04清除浮动</title>
+    <style>
+        .list {
+            width: 170px;
+
+            border: 1px solid #000;
+
+            margin: 110px auto 0;
+            list-style: none;
+            padding: 5px;
+        }
+
+        .list label {
+            margin: 10px 0 0;
+            font-size: 12px;
+
+        }
+
+        .list li {
+            padding-bottom: 10px;
+        }
+
+        .btn {
+            text-align: center;
+        }
+
+        .h {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .clearfix:before, .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        /* 放大缩小，做兼容 */
+        .clearfix {
+            zoom: 2;
+        }
+    </style>
+</head>
+<body>
+<!-- ul.list>li{$}*8 -->
+<ul class="list clearfix">
+    <form action="/user/register" method="post">
+        {% csrf_token %}
+
+        <li><label>用户名:</label><br><input type="text" name="user_name" id="user_name"></li>
+
+        <li><label>密码:</label><br><input type="password" name="pwd" id="pwd"></li>
+
+
+        <li><label>邮箱:</label><br><input type="text" name="email" id="email"></li>
+        <li><label>同意用户使用协议</label><input type="checkbox" name="allow" id="allow" checked="checked"></li>
+
+
+        <li class="btn"><input type="submit" class="btn" value="注 册"></li>
+
+
+    </form>
+</ul>
+<h3 class="h">{{ errmsg }}</h3>
+</body>
+</html>

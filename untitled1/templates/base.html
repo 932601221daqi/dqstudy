@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+</head>
+<body>
+<h1>用户注册</h1>
+<div>
+    <form method="post" action="/user/register">
+        {% csrf_token %}
+
+        <label>用户名:</label><input type="text" name="user_name" id="user_name">
+
+        <label>密码:</label><input type="password" name="pwd" id="pwd">
+
+        <label>确认密码:</label><input type="password" name="cpwd" id="cpwd">
+
+
+        <label>邮箱:</label><input type="text" name="email" id="email">
+
+
+        <input type="submit" value="注 册">
+
+        </ul>
+    </form>
+</div>
+</body>
+</html>

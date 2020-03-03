@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .d1{
+            margin: 50px auto 0;
+        }
+        .li {
+				list-style: none;
+				padding-left: 20px;
+                text-align: left;
+
+			}
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>我的浏览记录</h1><br>
+        {% for content in content_list %}
+            <ul>
+                <li><a href="{% url 'text:content' content.id %}">{{ content.title }}</a></li>
+            </ul>
+
+        {% endfor %}
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{% static '/js/jquery-1.12.4.min.js' %}"></script>
+    <style>
+        .ce {
+            width: 1280px;
+            margin: 50px auto 0;
+        }
+
+        .li {
+
+            float: left;
+            list-style: none;
+            padding-left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="ce">
+
+
+    <div>
+        <div class="" style="float: left">DQstudy!</div>
+
+        <div class="" style="float: right">
+            欢迎同学：<em>{{ user.username }}</em>
+            <span>|</span>
+            <a href="{% url 'user:center' %}">用户中心</a>
+            <span>|</span>
+            <a href="{% url 'user:logout' %}">退出</a>
+        </div>
+
+    </div>
+
+</div>
+<div class="ce">
+    <form action="/search" method="get">
+        <input type="text" name="q" placeholder="搜索">
+        <input type="submit" value="搜索">
+
+    </form>
+
+</div>
+<br>
+{##下方按钮#}
+<div class="ce">
+    {% for type in types %}
+        <li class="li"><a href="{% url 'text:course'  type.id 1 %}">{{ type.type }}&nbsp;&nbsp;</a></li>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
